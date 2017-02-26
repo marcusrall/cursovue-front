@@ -33,15 +33,15 @@
         login () {
           var data = {
             client_id: 2,
-            client_secret: 'yqtdGbbpPq7wD4hqY1TdUzPrhFBGwL9Yjz25isLN',
+            client_secret: 'drrnPaTeCKBjse6Qai1zPrrH60PyLzILaXagdJhU',
             grant_type: 'password',
             username: this.email,
             password: this.password
           }
-          this.$http.post("http://localhost:8000/oauth/token", data)
+          this.$http.post("oauth/token", data)
           .then(response => {
-                console.log(response)
             this.$auth.setToken(response.body.access_token, response.body.expires_in + Date.now())
+            this.$router.push("/feed")
           })
          // .then(function(response){
           //     console.log(response)
